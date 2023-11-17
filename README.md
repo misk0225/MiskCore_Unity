@@ -1,8 +1,8 @@
-# MiskCore_Unity documentation
+# MiskCore_Unity Documentation
 
-MiskCore 旨在創造更方便操作的Unity的功能，集合可通用的功能，不與任何專案耦合。
+MiskCore 旨在創造更方便操作的Unity的功能，集合可通用的功能，不與任何專案耦合，但耦合一些常用的套件。
 
-## 耦合
+## 耦合套件
 * **DOTween**
 * **UniRx**
 

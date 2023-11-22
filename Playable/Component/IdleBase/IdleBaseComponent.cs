@@ -21,7 +21,7 @@ namespace MiskCore.Playables.Module.IdleBase
 
         private IIdlePlayable _IdlePlayable;
         private IActionOncePlayable _ActionOncePlayable;
-        private AnimationMixerPlayable _MixerPlayable;
+        private AnimationMixerPlayable _RootPlayable;
 
         private IDisposable _CheckExitConditionDisposable;
         private Action _OnFinish;
@@ -38,7 +38,7 @@ namespace MiskCore.Playables.Module.IdleBase
             set
             {
                 _Speed = value;
-                _MixerPlayable.SetSpeed(_Speed);
+                _RootPlayable.SetSpeed(_Speed);
             }
         }
         private float _Speed = 1f;
@@ -49,11 +49,8 @@ namespace MiskCore.Playables.Module.IdleBase
             base.Awake();
             Graph.SetTimeUpdateMode(DirectorUpdateMode.GameTime);
 
-            _MixerPlayable = AnimationMixerPlayable.Create(Graph);
-            _MixerPlayable.SetInputCount(2);
-            _MixerPlayable.SetInputWeight(0, 1);
-            _MixerPlayable.SetInputWeight(1, 0);
-            playableOutput.SetSourcePlayable(_MixerPlayable);
+            _RootPlayable = AnimationMixerPlayable.Create(Graph);
+            SetIdleToRootPlayable();
 
             Graph.Play();
         }
@@ -74,13 +71,18 @@ namespace MiskCore.Playables.Module.IdleBase
             _IdlePlayable = idlePlayable;
             _IdlePlayable.Playable.SetSpeed(Speed);
 
-            Graph.Disconnect(_MixerPlayable, 0);
-            Graph.Connect(_IdlePlayable.Playable, 0, _MixerPlayable, 0);
+            Graph.Disconnect(_RootPlayable, 0);
+            Graph.Connect(_IdlePlayable.Playable, 0, _RootPlayable, 0);
 
             if (_ActionOncePlayable == null)
-                _MixerPlayable.SetInputWeight(0, 1);
+                _RootPlayable.SetInputWeight(0, 1);
             else
-                _MixerPlayable.SetInputWeight(0, 1 - _MixerPlayable.GetInputWeight(1));
+                _RootPlayable.SetInputWeight(0, 1 - _RootPlayable.GetInputWeight(1));
+        }
+
+        public void SetIdleToRootPlayable()
+        {
+            SetRootPlayable(_RootPlayable);
         }
 
 
@@ -99,8 +101,8 @@ namespace MiskCore.Playables.Module.IdleBase
 
             _ActionOncePlayable = actionPlayable;
 
-            Graph.Connect(actionPlayable.Playable, 0, _MixerPlayable, 1);
-            _ActionOncePlayable.OnStart(this, _MixerPlayable, speed);
+            Graph.Connect(actionPlayable.Playable, 0, _RootPlayable, 1);
+            _ActionOncePlayable.OnStart(this, _RootPlayable, speed);
             _OnFinish = OnFinish;
 
 

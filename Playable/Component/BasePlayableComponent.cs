@@ -10,7 +10,7 @@ public abstract class BasePlayableComponent : MonoBehaviour
 
     public PlayableGraph Graph { get; private set; }
 
-    public PlayableOutput playableOutput { get; private set; }
+    public PlayableOutput PlayableOutput { get; private set; }
 
 
 
@@ -23,7 +23,7 @@ public abstract class BasePlayableComponent : MonoBehaviour
     {
         _Animator = GetComponent<Animator>();
         Graph = PlayableGraph.Create();
-        playableOutput = AnimationPlayableOutput.Create(Graph, "output", _Animator);
+        PlayableOutput = AnimationPlayableOutput.Create(Graph, "output", _Animator);
     }
     protected virtual void OnDestroy()
     {
@@ -31,6 +31,14 @@ public abstract class BasePlayableComponent : MonoBehaviour
     }
 
     #endregion
+
+    public void SetRootPlayable(Playable playable)
+    {
+        playable.SetInputCount(2);
+        playable.SetInputWeight(0, 1);
+        playable.SetInputWeight(1, 0);
+        PlayableOutput.SetSourcePlayable(playable);
+    }
 
 
 

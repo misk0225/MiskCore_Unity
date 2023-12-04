@@ -1,21 +1,13 @@
-using MiskCore;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 
 namespace MiskCore
 {
-    public class PropertyAnimation : MonoBehaviour
+    public abstract class BaseFunctionalAnimation : MonoBehaviour
     {
-        [SerializeField]
-        private UnityEvent<float> _Object;
-
-        [SerializeField]
-        private AnimationCurve _Curve;
-
         [SerializeField]
         private float _Time;
 
@@ -23,6 +15,10 @@ namespace MiskCore
         private bool _Loop;
 
         private IDisposable _Timer;
+
+        protected abstract void OnUpdate(float time, float normalizeTime);
+
+        protected virtual void OnRefresh() { }
 
         public void Do()
         {
@@ -33,17 +29,26 @@ namespace MiskCore
             {
                 cur += Time.deltaTime;
                 if (_Loop)
-                    _Object.Invoke(_Curve.Evaluate((cur % _Time) / _Time));
+                    OnUpdate((cur % _Time), (cur % _Time) / _Time);
                 else
                 {
                     if (cur >= _Time)
                     {
-                        _Object.Invoke(_Curve.Evaluate(1));
-                        Clear();
+                        if (_Loop)
+                        {
+                            cur = cur % _Time;
+                            OnRefresh();
+                            OnUpdate(cur, cur / _Time);
+                        }
+                        else
+                        {
+                            OnUpdate(_Time, 1);
+                            Clear();
+                        }
                     }
                     else
                     {
-                        _Object.Invoke(_Curve.Evaluate(cur / _Time));
+                        OnUpdate(cur, cur / _Time);
                     }
                 }
             });
@@ -54,5 +59,5 @@ namespace MiskCore
             _Timer?.Dispose();
         }
     }
-}
 
+}

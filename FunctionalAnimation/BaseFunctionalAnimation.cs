@@ -58,6 +58,11 @@ namespace MiskCore
         {
             _Timer?.Dispose();
         }
+
+        protected void OnDestroy()
+        {
+            Clear();
+        }
     }
 
 }

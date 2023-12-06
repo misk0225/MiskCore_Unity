@@ -23,8 +23,6 @@ namespace MiskCore.Process
                 var p = transform.GetChild(i).GetComponent<ProcessComponent>();
                 m_Processs.Add(p);
             }
-
-            ProcessExecuter.ResigterProcess(this);
         }
 
         public override void OnProcessStart()
@@ -48,7 +46,7 @@ namespace MiskCore.Process
 
         public override void OnProcessDestroy()
         {
-            ProcessExecuter.RomoveProcess(this);
+
         }
 
         private void RecursionCallNextOnFinish()

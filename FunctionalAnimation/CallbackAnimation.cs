@@ -39,7 +39,7 @@ namespace MiskCore
         protected override void OnRefresh()
         {
             _Idx = 0;
-
+            _NormalizeIdx = 0;
         }
 
 

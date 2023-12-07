@@ -6,7 +6,7 @@ using MiskCore;
 
 namespace MiskCore 
 {
-    public abstract class ObjectPool<T> : SingletonComponent<ObjectPool<T>> where T : Component
+    public class ObjectPool<T> : SingletonComponent<ObjectPool<T>> where T : Component, new()
     {
         public int MaxCount => _MaxCount;
         public int CurCount { get; private set; } = 0;
@@ -74,7 +74,11 @@ namespace MiskCore
                 if (CurCount < MaxCount)
                 {
                     CurCount++;
-                    T obj = Instantiate(_Sample);
+                    T obj = null;
+                    if (_Sample == null)
+                        obj = new GameObject(typeof(T).Name).AddComponent<T>();
+                    else
+                        obj = Instantiate(_Sample);
                     obj.gameObject.SetActive(_ShowOnGet);
                     return obj;
                 }

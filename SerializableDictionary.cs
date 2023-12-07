@@ -42,8 +42,8 @@ namespace MiskCore
             }
         }
 
-        public void ContainKey(TKey key) => _.ContainsKey(key);
-        public void ContainValue(TValue value) => _.ContainsValue(value);
+        public bool ContainsKey(TKey key) => _.ContainsKey(key);
+        public bool ContainsValue(TValue value) => _.ContainsValue(value);
         public int Count => _.Count;
     }
 }

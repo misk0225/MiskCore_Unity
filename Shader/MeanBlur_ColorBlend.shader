@@ -1,6 +1,6 @@
 ﻿// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
 
-Shader "MiakCore/MeanBlur_ColorBlend"
+Shader "MiskCore/MeanBlur_ColorBlend"
 {
 
     Properties

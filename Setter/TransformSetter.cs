@@ -83,6 +83,10 @@ namespace MiskCore
         {
             transform.localScale = new Vector3(transform.localScale.x, transform.localScale.y, value);
         }
+        public void SetLocalScale(float value)
+        {
+            transform.localScale = Vector3.one * value;
+        }
     }
 }
 

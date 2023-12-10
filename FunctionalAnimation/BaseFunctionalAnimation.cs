@@ -32,6 +32,9 @@ namespace MiskCore
         {
             Clear();
 
+            OnRefresh();
+            _Update(0, 0);
+
             float cur = 0;
             _Timer = Utils.Updater(() =>
             {

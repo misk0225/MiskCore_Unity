@@ -17,7 +17,31 @@ namespace MiskCore
         [SerializeField]
         private bool _Loop;
 
+        [SerializeField]
+        private bool _PlayOnAwake;
+
+        [SerializeField]
+        private bool _PlayOnNextFrame;
+
         private IDisposable _Timer;
+
+        protected virtual void Awake()
+        {
+            if (_PlayOnAwake)
+            {
+                Do();
+            }
+
+            if (_PlayOnNextFrame)
+            {
+                Utils.NextFrame(Do);
+            }
+        }
+        protected void OnDestroy()
+        {
+            Clear();
+        }
+
 
         private void _Update(float time, float normalizeTime)
         {
@@ -38,6 +62,8 @@ namespace MiskCore
             float cur = 0;
             _Timer = Utils.Updater(() =>
             {
+                if (_Time == 0) return;
+
                 cur += Time.deltaTime;
                 if (cur >= _Time)
                 {
@@ -63,11 +89,6 @@ namespace MiskCore
         public void Clear()
         {
             _Timer?.Dispose();
-        }
-
-        protected void OnDestroy()
-        {
-            Clear();
         }
     }
 

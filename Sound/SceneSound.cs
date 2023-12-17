@@ -15,7 +15,6 @@ namespace MiskCore
             base.Awake();
 
             Manager = SoundManager.Create("MsikCore.SceneSound", transform);
-            DontDestroyOnLoad(this);
         }
 
         public SoundManager CreateManager(string name = "SoundManager")

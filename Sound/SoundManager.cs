@@ -9,6 +9,14 @@ namespace MiskCore
 {
     public class SoundManager : MonoBehaviour
     {
+        public static SoundManager Create(string name, Transform parent)
+        {
+            GameObject obj = new GameObject(name);
+            SoundManager manager = obj.AddComponent<SoundManager>();
+            manager.transform.parent = parent;
+            return manager;
+        }
+
         private Dictionary<string, AudioSource> _ChannelMap = new Dictionary<string, AudioSource>();
         private Dictionary<AudioSource, PlayingChannel> _PlayingChannel = new Dictionary<AudioSource, PlayingChannel>();
         private Dictionary<AudioSource, IDisposable> _ChannelScheduleMap = new Dictionary<AudioSource, IDisposable>();
@@ -21,7 +29,7 @@ namespace MiskCore
             }
             set
             {
-                _Volume = value;
+                _Volume = Mathf.Clamp01(value);
                 foreach (PlayingChannel channel in _PlayingChannel.Values)
                 {
                     channel.Source.volume = _Volume * channel.Volume;
@@ -49,8 +57,8 @@ namespace MiskCore
             if (_ChannelMap.ContainsKey(name))
             {
                 AudioSource source = _ChannelMap[name];
-                source.volume = volume;
                 _PlayingChannel[source].Volume = volume;
+                source.volume = _PlayingChannel[source].Volume * Volume;
             }
 
         }
@@ -74,7 +82,7 @@ namespace MiskCore
         {
             source.loop = loop;
             source.clip = clip;
-            source.volume = volume;
+            source.volume = volume * Mathf.Clamp01(Volume);
             source.pitch = pitch;
             source.transform.parent = transform;
 
@@ -111,7 +119,20 @@ namespace MiskCore
         private class PlayingChannel
         {
             public AudioSource Source;
-            public float Volume;
+            public float Volume
+            {
+                get
+                {
+                    return _Volume;
+                }
+
+                set
+                {
+                    _Volume = Mathf.Clamp01(value);
+                }
+            }
+
+            private float _Volume = 1;
         }
     }
 }

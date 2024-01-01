@@ -31,11 +31,11 @@ namespace MiskCore
     }
 
 
-    public class SFAmplifierValue<T, A1> : AmplifierValue<T, A1>
+    public class DecorateAmplifierValue<T, A1> : AmplifierValue<T, A1>
     {
         private Dictionary<string, object> _ContextsMap = new Dictionary<string, object>();
 
-        public DT GetContext<DT>() where DT : new()
+        public DT GetContext<DT>() where DT : Context, new()
         {
             string key = typeof(DT).FullName;
             if (_ContextsMap.ContainsKey(key))
@@ -43,9 +43,14 @@ namespace MiskCore
             else
             {
                 DT context = new DT();
+                context.Amplifier = this;
                 _ContextsMap.Add(key, context);
                 return context;
             }
+        }
+        public class Context
+        {
+            public AmplifierValue<T, A1> Amplifier;
         }
     }
 }

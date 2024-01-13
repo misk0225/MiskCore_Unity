@@ -8,6 +8,8 @@ namespace MiskCore
 {
     public abstract class BaseFunctionalAnimation : MonoBehaviour
     {
+        public Action OnFinish;
+
         [SerializeField, Range(0f, 1f), ReadOnly]
         private float _Process;
 
@@ -78,6 +80,8 @@ namespace MiskCore
                         _Update(_Time, 1);
                         Clear();
                     }
+
+                    OnFinish?.Invoke();
                 }
                 else
                 {

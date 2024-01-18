@@ -55,14 +55,14 @@ namespace MiskCore.Math
         }
 
         /// <summary>
-        /// 輸入一角度，回傳 0 ~ 360 的角度
+        /// 輸入一角度，回傳 0 ~ 359 的角度
         /// </summary>
         /// <param name="eulerAngle"></param>
         /// <returns></returns>
         public static float PositiveEulerAngle(float eulerAngle)
         {
             eulerAngle %= 360;
-            return eulerAngle > 0 ? eulerAngle : 360 + eulerAngle;
+            return eulerAngle >= 0 ? eulerAngle : 360 + eulerAngle;
         }
 
 
@@ -71,7 +71,7 @@ namespace MiskCore.Math
         /// </summary>
         public static RotationDirection GetDirectionBy2EularAngle(float from, float to)
         {
-            float diff = to - from;
+            float diff = PositiveEulerAngle(to) - PositiveEulerAngle(from);
             if (diff < 0)
             {
                 diff += 360;
@@ -79,11 +79,11 @@ namespace MiskCore.Math
 
             if (diff >= 0 && diff <= 180)
             {
-                return RotationDirection.CLOCKWISE;
+                return RotationDirection.COUNTER_CLOCKWISE;
             }
             else
             {
-                return RotationDirection.COUNTER_CLOCKWISE;
+                return RotationDirection.CLOCKWISE;
             }
         }
 
@@ -111,7 +111,7 @@ namespace MiskCore.Math
         /// <returns></returns>
         public static float GetNearRotationDifference(float angle1, float angle2)
         {
-            float diff = angle2 - angle1;
+            float diff = PositiveEulerAngle(angle2) - PositiveEulerAngle(angle1);
 
             if (diff < 0)
             {

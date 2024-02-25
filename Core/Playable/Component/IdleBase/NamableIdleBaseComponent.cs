@@ -37,7 +37,8 @@ namespace MiskCore.Playables.Module.IdleBase.Namble
         }
 
 
-        public void ActionByName(string name, float speed = 1f) => ActionByName(name, null, speed);
+        public void ActionByName(string name) => ActionByName(name, null, 1);
+        public void ActionByName(string name, float speed) => ActionByName(name, null, speed);
         public void ActionByName(string name, Action onFinish, float speed = 1f)
         {
             if (_NambleActions == null) return;

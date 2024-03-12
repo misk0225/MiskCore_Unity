@@ -8,31 +8,39 @@ namespace MiskCore
     [RequireComponent(typeof(Image))]
     public class ImageSetter : MonoBehaviour
     {
+        public Image Image
+        {
+            get
+            {
+                if (_Image == null)
+                {
+                    _Image = GetComponent<Image>();
+                }
+
+                return _Image;
+            }
+        }
         private Image _Image;
 
-        protected void Awake()
-        {
-            _Image = GetComponent<Image>();
-        }
 
         public void SetColorR(float value)
         {
-            _Image.color = new Color(value, _Image.color.g, _Image.color.b, _Image.color.a);
+            Image.color = new Color(value, Image.color.g, Image.color.b, Image.color.a);
         }
 
         public void SetColorG(float value)
         {
-            _Image.color = new Color(_Image.color.r, value, _Image.color.b, _Image.color.a);
+            Image.color = new Color(Image.color.r, value, Image.color.b, Image.color.a);
         }
 
         public void SetColorB(float value)
         {
-            _Image.color = new Color(_Image.color.r, _Image.color.g, value, _Image.color.a);
+            Image.color = new Color(Image.color.r, Image.color.g, value, Image.color.a);
         }
 
         public void SetColorA(float value)
         {
-            _Image.color = new Color(_Image.color.r, _Image.color.g, _Image.color.b, value);
+            Image.color = new Color(Image.color.r, Image.color.g, Image.color.b, value);
         }
     }
 }

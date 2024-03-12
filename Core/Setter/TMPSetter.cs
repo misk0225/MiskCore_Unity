@@ -5,34 +5,41 @@ using UnityEngine;
 
 namespace MiskCore
 {
-    [RequireComponent(typeof(TMP_Text))]
+    [RequireComponent(typeof(TextMeshProUGUI))]
     public class TMPSetter : MonoBehaviour
     {
-        private TMP_Text _TMP;
-
-        protected void Awake()
+        public TextMeshProUGUI TMP
         {
-            _TMP = GetComponent<TMP_Text>();
+            get
+            {
+                if (_TMP == null)
+                {
+                    _TMP = GetComponent<TextMeshProUGUI>();
+                }
+
+                return _TMP;
+            }
         }
+        private TextMeshProUGUI _TMP;
 
         public void SetColorR(float value)
         {
-            _TMP.color = new Color(value, _TMP.color.g, _TMP.color.b, _TMP.color.a);
+            TMP.color = new Color(value, TMP.color.g, TMP.color.b, TMP.color.a);
         }
 
         public void SetColorG(float value)
         {
-            _TMP.color = new Color(_TMP.color.r, value, _TMP.color.b, _TMP.color.a);
+            TMP.color = new Color(TMP.color.r, value, TMP.color.b, TMP.color.a);
         }
 
         public void SetColorB(float value)
         {
-            _TMP.color = new Color(_TMP.color.r, _TMP.color.g, value, _TMP.color.a);
+            TMP.color = new Color(TMP.color.r, TMP.color.g, value, TMP.color.a);
         }
 
         public void SetColorA(float value)
         {
-            _TMP.color = new Color(_TMP.color.r, _TMP.color.g, _TMP.color.b, value);
+            TMP.color = new Color(TMP.color.r, TMP.color.g, TMP.color.b, value);
         }
     }
 }

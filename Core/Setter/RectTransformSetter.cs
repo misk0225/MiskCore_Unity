@@ -23,6 +23,16 @@ namespace MiskCore
         {
             _RectTransform.sizeDelta = new Vector2(_RectTransform.sizeDelta.x, value);
         }
+
+        public void SetAnchoredPositionX(float value)
+        {
+            _RectTransform.anchoredPosition = new Vector2(value, _RectTransform.anchoredPosition.y);
+        }
+
+        public void SetAnchoredPositionY(float value)
+        {
+            _RectTransform.anchoredPosition = new Vector2(_RectTransform.anchoredPosition.x, value);
+        }
     }
 
 }

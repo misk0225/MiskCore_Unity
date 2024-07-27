@@ -9,6 +9,21 @@ namespace MiskCore.Process
         [SerializeField]
         private ProcessComponent m_Process;
 
+        [SerializeField]
+        private bool m_ActionOnAwake;
+
+        [SerializeField]
+        private bool m_ActionOnNextFrame;
+
+        private void Awake()
+        {
+            if (m_ActionOnAwake)
+                Action();
+
+            if (m_ActionOnNextFrame)
+                Utils.NextFrame(Action);
+        }
+
         public void Action()
         {
             TryForceStop();

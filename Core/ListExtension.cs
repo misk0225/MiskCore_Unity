@@ -11,4 +11,11 @@ public static class ListExtension
         else
             return default(T);
     }
+
+    public static T Pop<T> (this IList<T> collection, int index)
+    {
+        T e = collection[index];
+        collection.RemoveAt(index);
+        return e;
+    }
 }

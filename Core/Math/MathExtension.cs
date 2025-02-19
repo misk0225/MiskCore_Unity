@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,7 +8,7 @@ namespace MiskCore.Math
     public static class MathExtension
     {
         /// <summary>
-        /// ¨D¤G¤¸¤@¦¸¤èµ{¦¡
+        /// æ±‚äºŒå…ƒä¸€æ¬¡æ–¹ç¨‹å¼
         /// </summary>
         /// <returns></returns>
         public static float[] QuadraticEquation (float x, float a, float b, float c)
@@ -26,7 +26,7 @@ namespace MiskCore.Math
 
 
         /// <summary>
-        /// ¦^¶Ç¶ê¤WÀH¾÷¤@ÂI
+        /// å›å‚³åœ“ä¸Šéš¨æ©Ÿä¸€é»
         /// </summary>
         public static Vector2 RandomPointOnCircle (this CircleFormula formula)
         {
@@ -38,7 +38,7 @@ namespace MiskCore.Math
 
 
         /// <summary>
-        /// ¨D¨â¦V¶q¤º¨¤
+        /// æ±‚å…©å‘é‡å…§è§’
         /// </summary>
         public static float InnerEulerAngle2Vector(Vector3 v1, Vector3 v2)
         {
@@ -55,7 +55,7 @@ namespace MiskCore.Math
         }
 
         /// <summary>
-        /// ¿é¤J¤@¨¤«×¡A¦^¶Ç 0 ~ 359 ªº¨¤«×
+        /// è¼¸å…¥ä¸€è§’åº¦ï¼Œå›å‚³ 0 ~ 359 çš„è§’åº¦
         /// </summary>
         /// <param name="eulerAngle"></param>
         /// <returns></returns>
@@ -67,7 +67,7 @@ namespace MiskCore.Math
 
 
         /// <summary>
-        /// ¿é¤J¨â­Ó¨¤«×¡A¦^¶Ç¸ûªñªº¤è¦V
+        /// è¼¸å…¥å…©å€‹è§’åº¦ï¼Œå›å‚³è¼ƒè¿‘çš„æ–¹å‘
         /// </summary>
         public static RotationDirection GetDirectionBy2EularAngle(float from, float to)
         {
@@ -88,7 +88,7 @@ namespace MiskCore.Math
         }
 
         /// <summary>
-        /// ¿é¤J¨â­Ó¦V¶q¡A¦^¶Ç¸ûªñªº¤è¦V
+        /// è¼¸å…¥å…©å€‹å‘é‡ï¼Œå›å‚³è¼ƒè¿‘çš„æ–¹å‘
         /// </summary>
         public static RotationDirection GetNearDirectionBy2Vector(Vector3 from, Vector3 to)
         {
@@ -104,7 +104,7 @@ namespace MiskCore.Math
         }
 
         /// <summary>
-        /// ¿é¤J¨â­Ó¨¤«×¡A¦^¶Ç¸ûªñªº®t­È
+        /// è¼¸å…¥å…©å€‹è§’åº¦ï¼Œå›å‚³è¼ƒè¿‘çš„å·®å€¼
         /// </summary>
         /// <param name="angle1"></param>
         /// <param name="angle2"></param>

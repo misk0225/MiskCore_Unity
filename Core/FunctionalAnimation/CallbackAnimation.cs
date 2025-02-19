@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,10 +8,10 @@ namespace MiskCore
 {
     public class CallbackAnimation : BaseFunctionalAnimation
     {
-        [SerializeField, Header("Callback Ĳ�o�ɶ��]�бN�ɶ��Ѥp��j�Ƨǡ^")]
+        [SerializeField, Header("Callback 觸發時間（請將時間由小到大排序）")]
         private List<Fragment> _Fragments;
 
-        [SerializeField, Header("Callback Ĳ�o�ɶ��]�k�@�ơ^�]�бN�ɶ��Ѥp��j�Ƨǡ^")]
+        [SerializeField, Header("Callback 觸發時間（歸一化）（請將時間由小到大排序）")]
         private List<Fragment> _NormalizeFragments;
 
         private int _Idx = 0;

@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
@@ -6,7 +6,7 @@ using UnityEngine.Playables;
 namespace MiskCore.Playables.Module.IdleBase.Namble
 {
     /// <summary>
-    /// ¥ÎAnimationClip°µ¤@¦¸©Ê°Êµe
+    /// ç”¨AnimationClipåšä¸€æ¬¡æ€§å‹•ç•«
     /// </summary>
     public class ClipNamableAction : IActionsPlayableNamable
     {

@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,8 +7,8 @@ using UnityEngine;
 namespace MiskCore.Process
 {
     /// <summary>
-    /// Process Component ¬O¤@­Ó¼sªxªº¡A·§¬A«o¿W¥ßªº¬yµ{¤¸¥ó¡A¦b°õ¦æ®É GameObject ·|«G°_¡A¤]´N¬O»¡¾Ö¦³²M·¡ªº¤¶­±¥i¬İ¥X¥¿¦b°õ¦æªº¬yµ{
-    /// ¥H State Machine ¼Ò¦¡°õ¦æµ{¦¡¡Aµ¥©ó¬Oª«¥ó¦¡¡B¥i§Ç¦C¤Æ¡B¥iÅã¥Üªº State Machine
+    /// Process Component æ˜¯ä¸€å€‹å»£æ³›çš„ï¼Œæ¦‚æ‹¬å»ç¨ç«‹çš„æµç¨‹å…ƒä»¶ï¼Œåœ¨åŸ·è¡Œæ™‚ GameObject æœƒäº®èµ·ï¼Œä¹Ÿå°±æ˜¯èªªæ“æœ‰æ¸…æ¥šçš„ä»‹é¢å¯çœ‹å‡ºæ­£åœ¨åŸ·è¡Œçš„æµç¨‹
+    /// ä»¥ State Machine æ¨¡å¼åŸ·è¡Œç¨‹å¼ï¼Œç­‰æ–¼æ˜¯ç‰©ä»¶å¼ã€å¯åºåˆ—åŒ–ã€å¯é¡¯ç¤ºçš„ State Machine
     /// </summary>
     public abstract class ProcessComponent : MonoBehaviour
     {

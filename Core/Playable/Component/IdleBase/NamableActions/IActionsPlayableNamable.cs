@@ -1,15 +1,15 @@
-
+ï»¿
 
 namespace MiskCore.Playables.Module.IdleBase.Namble
 {
     /// <summary>
-    /// ¥i³QºÙ©Iªº Action ¦æ¬°
+    /// å¯è¢«ç¨±å‘¼çš„ Action è¡Œç‚º
     /// </summary>
     public interface IActionsPlayableNamable
     {
 
         /// <summary>
-        /// ¥Î¦WºÙÀò±o¤@­Ó¦æ¬°
+        /// ç”¨åç¨±ç²å¾—ä¸€å€‹è¡Œç‚º
         /// </summary>
         public IActionOncePlayable GetActionPlayable(string actionName);
     }

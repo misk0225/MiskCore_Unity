@@ -1,4 +1,4 @@
-using MiskCore.Playables.Module.IdleBase;
+ï»¿using MiskCore.Playables.Module.IdleBase;
 using UnityEngine;
 using UnityEngine.Playables;
 
@@ -8,17 +8,17 @@ namespace MiskCore.Playables.Module.IdleBase.StateMachine
     {
 
         /// <summary>
-        /// ¦¹ª¬ºAªº«Ý¾÷ª¬ºA
+        /// æ­¤ç‹€æ…‹çš„å¾…æ©Ÿç‹€æ…‹
         /// </summary>
         public IIdlePlayable IdlePlayable { get; }
 
         /// <summary>
-        /// ¶i¤Jª¬ºA®Éªº Playable
+        /// é€²å…¥ç‹€æ…‹æ™‚çš„ Playable
         /// </summary>
         public Playable StartPlayable { get; }
 
         /// <summary>
-        /// Â÷¶}ª¬ºA®Éªº Playable
+        /// é›¢é–‹ç‹€æ…‹æ™‚çš„ Playable
         /// </summary>
         public Playable ExitPlayable { get; }
     }

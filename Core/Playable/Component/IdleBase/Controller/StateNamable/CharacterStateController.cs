@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using MiskCore.Playables.Module.IdleBase;
@@ -10,33 +10,33 @@ namespace MiskCore.Playables.Module.IdleBase.Namble
     public class CharacterStateController
     {
         /// <summary>
-        /// ¥Î¨Ó±±¨î¨¤¦âª¬ºA
+        /// ç”¨ä¾†æ§åˆ¶è§’è‰²ç‹€æ…‹
         /// </summary>
         private IdleBaseStateController _IdleBaseStateController;
 
         /// <summary>
-        /// ¥D­n±±¨îªº Component
-        /// ³o­Ó±M®×´Á±æ°µ°Ê§@¤§¥~«O«ù Idle ª¬ºA¡A©Ò¥H¨Ï¥Î IdleBase
+        /// ä¸»è¦æ§åˆ¶çš„ Component
+        /// é€™å€‹å°ˆæ¡ˆæœŸæœ›åšå‹•ä½œä¹‹å¤–ä¿æŒ Idle ç‹€æ…‹ï¼Œæ‰€ä»¥ä½¿ç”¨ IdleBase
         /// </summary>
         private IdleBaseComponent _Component;
 
         /// <summary>
-        /// ³Ìªìª¬ºA
+        /// æœ€åˆç‹€æ…‹
         /// </summary>
         private ICharacterPlayableRootStateInfo _Root;
 
         /// <summary>
-        /// ·í«eª¬ºA
+        /// ç•¶å‰ç‹€æ…‹
         /// </summary>
         public ICharacterPlayableStateInfo CurState { get; private set; }
 
         /// <summary>
-        /// ·í«e¥i¥ÎºÙ©IÀò±o¦æ¬°ªº¤¶­±
+        /// ç•¶å‰å¯ç”¨ç¨±å‘¼ç²å¾—è¡Œç‚ºçš„ä»‹é¢
         /// </summary>
         public IActionsPlayableNamable NambleActions { get; private set; }
 
         /// <summary>
-        /// ©Ò¦³¨¤¦âª¬ºA
+        /// æ‰€æœ‰è§’è‰²ç‹€æ…‹
         /// </summary>
         private Dictionary<int, ICharacterPlayableStateInfo> _States = new Dictionary<int, ICharacterPlayableStateInfo>();
 

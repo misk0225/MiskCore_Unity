@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,8 +6,8 @@ using UnityEngine;
 namespace MiskCore.Process
 {
     /// <summary>
-    /// ¥ÎQueue·§©À°õ¦æProcessÃş§O
-    /// ©ñ¦bProcess­Ìªº¤÷ª«¥ó¤W¡A·|¦Û°Ê§ì¨úProcess
+    /// ç”¨Queueæ¦‚å¿µåŸ·è¡ŒProcessé¡åˆ¥
+    /// æ”¾åœ¨Processå€‘çš„çˆ¶ç‰©ä»¶ä¸Šï¼Œæœƒè‡ªå‹•æŠ“å–Process
     /// </summary>
     public class QueueProcessComponent : ProcessComponent
     {

@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.Animations;
 using UnityEngine.Playables;
 
@@ -6,7 +6,7 @@ using UnityEngine.Playables;
 namespace MiskCore.Playables.Module.IdleBase
 {
     /// <summary>
-    /// ¥Î¤@­Ó clip ·í§@«Ý¾÷°Êµe
+    /// ç”¨ä¸€å€‹ clip ç•¶ä½œå¾…æ©Ÿå‹•ç•«
     /// </summary>
     public class ClipIdlePlayable : IIdlePlayable
     {

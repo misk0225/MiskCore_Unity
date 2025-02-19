@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using MiskCore;
@@ -6,8 +6,8 @@ using MiskCore;
 namespace MiskCore.Process
 {
     /// <summary>
-    /// ¥i¦Û¥Ñ±¾¸ü¨ä¥Lª««Ø¡A¨Ã³]©w Method
-    /// °õ¦æ«á¥ß¨è©I¥sFinish
+    /// å¯è‡ªç”±æ›è¼‰å…¶ä»–ç‰©å»ºï¼Œä¸¦è¨­å®š Method
+    /// åŸ·è¡Œå¾Œç«‹åˆ»å‘¼å«Finish
     /// </summary>
     public class ActionMethod : ProcessComponent
     {

@@ -1,52 +1,52 @@
-using UnityEngine.Animations;
+ï»¿using UnityEngine.Animations;
 using UnityEngine.Playables;
 
 
 namespace MiskCore.Playables.Module.IdleBase
 {
     /// <summary>
-    /// °õ¦æ¤@¦¸°Êµe±µ¤f
-    /// »İ´£¨Ñ°Êµe²V¦X¦æ¬°»P©I¥sµ²§ô®É¾÷
+    /// åŸ·è¡Œä¸€æ¬¡å‹•ç•«æ¥å£
+    /// éœ€æä¾›å‹•ç•«æ··åˆè¡Œç‚ºèˆ‡å‘¼å«çµæŸæ™‚æ©Ÿ
     /// </summary>
     public interface IActionOncePlayable
     {
         /// <summary>
-        /// ¨Ï¥Î¸Ó Action ªº IdleBaseComponent
+        /// ä½¿ç”¨è©² Action çš„ IdleBaseComponent
         /// </summary>
         public IdleBaseComponent Component { get; set; }
 
         /// <summary>
-        /// ¶}©l²V¦X®É°Ñ»Pªº Playable
+        /// é–‹å§‹æ··åˆæ™‚åƒèˆ‡çš„ Playable
         /// </summary>
         public Playable Playable { get; }
 
         /// <summary>
-        /// ·í¶}©l¶i¦æ
+        /// ç•¶é–‹å§‹é€²è¡Œ
         /// </summary>
         public void OnStart(IdleBaseComponent component, AnimationMixerPlayable mixerPlayable, float speed);
 
         /// <summary>
-        /// ¶i¤J²V¦X Update
+        /// é€²å…¥æ··åˆ Update
         /// </summary>
         public void OnUpdate(float deltaTime);
 
         /// <summary>
-        /// ©I¥sµ²§ô°Êµe
+        /// å‘¼å«çµæŸå‹•ç•«
         /// </summary>
         public bool ExitCondition();
 
         /// <summary>
-        /// ·í§¹¥şÂ÷¶}
+        /// ç•¶å®Œå…¨é›¢é–‹
         /// </summary>
         public void OnExit();
 
         /// <summary>
-        /// ·í¦æ¬°³Q¼È°±
+        /// ç•¶è¡Œç‚ºè¢«æš«åœ
         /// </summary>
         public void OnPause();
 
         /// <summary>
-        /// ·í¦æ¬°³Q³qª¾Ä~Äò
+        /// ç•¶è¡Œç‚ºè¢«é€šçŸ¥ç¹¼çºŒ
         /// </summary>
         public void OnContinue();
     }

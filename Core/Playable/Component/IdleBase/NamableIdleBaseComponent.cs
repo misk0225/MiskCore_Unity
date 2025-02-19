@@ -1,4 +1,4 @@
-using MiskCore.Playables.Module.IdleBase;
+ï»¿using MiskCore.Playables.Module.IdleBase;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -16,7 +16,7 @@ namespace MiskCore.Playables.Module.IdleBase.Namble
         private NamableActionScriptableObject _DefaultNambleAction;
 
         /// <summary>
-        /// ·í«e¥i¥ÎºÙ©IÀò±o¦æ¬°ªº¤¶­±
+        /// ç•¶å‰å¯ç”¨ç¨±å‘¼ç²å¾—è¡Œç‚ºçš„ä»‹é¢
         /// </summary>
         private IActionsPlayableNamable _NambleActions;
 

@@ -1,27 +1,27 @@
-using MiskCore.Playables.Module.IdleBase.StateMachine;
+ï»¿using MiskCore.Playables.Module.IdleBase.StateMachine;
 using MiskCore.Playables.Module.IdleBase;
 
 namespace MiskCore.Playables.Module.IdleBase.Namble
 {
     /// <summary>
-    /// ¨¤¦âªºª¬ºA¸ê°T
-    /// ¨C­Óª¬ºA³£¥i¥H°µ¦U¦Ûªº°Ê§@¡A°Ê§@¥Ñ¦WºÙÀò±o
+    /// è§’è‰²çš„ç‹€æ…‹è³‡è¨Š
+    /// æ¯å€‹ç‹€æ…‹éƒ½å¯ä»¥åšå„è‡ªçš„å‹•ä½œï¼Œå‹•ä½œç”±åç¨±ç²å¾—
     /// </summary>
     public interface ICharacterPlayableStateInfo
     {
 
         /// <summary>
-        /// ª¬ºAºØÃş
+        /// ç‹€æ…‹ç¨®é¡
         /// </summary>
         public int Type { get; }
 
         /// <summary>
-        /// ª¬ºA¸ê®Æ
+        /// ç‹€æ…‹è³‡æ–™
         /// </summary>
         public IIdleBaseStateInfo StateInfo { get; }
 
         /// <summary>
-        /// ¦¹ª¬ºA¤U¥i³QºÙ©Iªº Action ¦æ¬°
+        /// æ­¤ç‹€æ…‹ä¸‹å¯è¢«ç¨±å‘¼çš„ Action è¡Œç‚º
         /// </summary>
         public IActionsPlayableNamable NamableActions { get; }
     }

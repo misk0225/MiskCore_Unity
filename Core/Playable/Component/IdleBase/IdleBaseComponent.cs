@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using UnityEngine.Animations;
 using UnityEngine.Playables;
 using UniRx;
@@ -6,9 +6,9 @@ using UnityEngine;
 
 namespace MiskCore.Playables.Module.IdleBase
 {
-    // ´£¨Ñ¤@­Ó°Êµe±±¨î¾¹®Ø¬[¡C
-    // ¼½©ñÀq»{«İ¾÷ª¬ºA¡A¨Ã¥i¼½©ñ¤@¦¸©Ê°Êµe¡A¼½©ñ§¹·|¦Û°Ê¤Á´«¦^«İ¾÷°Êµe
-    // ¥H¤@­Ó Mixer »P ClipPlayable ¬°°ò©³¡A¤@¦¸©Êªº°Êµe±µ¦b Mixer ¤À¤ä
+    // æä¾›ä¸€å€‹å‹•ç•«æ§åˆ¶å™¨æ¡†æ¶ã€‚
+    // æ’­æ”¾é»˜èªå¾…æ©Ÿç‹€æ…‹ï¼Œä¸¦å¯æ’­æ”¾ä¸€æ¬¡æ€§å‹•ç•«ï¼Œæ’­æ”¾å®Œæœƒè‡ªå‹•åˆ‡æ›å›å¾…æ©Ÿå‹•ç•«
+    // ä»¥ä¸€å€‹ Mixer èˆ‡ ClipPlayable ç‚ºåŸºåº•ï¼Œä¸€æ¬¡æ€§çš„å‹•ç•«æ¥åœ¨ Mixer åˆ†æ”¯
     public class IdleBaseComponent : BasePlayableComponent
     {
         public IIdlePlayable IdlePlayable
@@ -64,7 +64,7 @@ namespace MiskCore.Playables.Module.IdleBase
 
 
         /// <summary>
-        /// ³]©w Idle °Êµe
+        /// è¨­å®š Idle å‹•ç•«
         /// </summary>
         public void SetIdlePlayable(IIdlePlayable idlePlayable)
         {
@@ -87,8 +87,8 @@ namespace MiskCore.Playables.Module.IdleBase
 
 
         /// <summary>
-        /// °õ¦æ¤@­Ó¦æ¬°
-        /// ·|¦Û°Ê³s±µ IActionOncePlayable ªº StartMixPlayable
+        /// åŸ·è¡Œä¸€å€‹è¡Œç‚º
+        /// æœƒè‡ªå‹•é€£æ¥ IActionOncePlayable çš„ StartMixPlayable
         /// </summary>
         public void ActionOnceAnimation(IActionOncePlayable actionPlayable, Action OnFinish = null, float speed = 1f)
         {
@@ -110,7 +110,7 @@ namespace MiskCore.Playables.Module.IdleBase
         }
 
         /// <summary>
-        /// ¼È°±¥¿¦b¼½©ñªº¦æ¬°
+        /// æš«åœæ­£åœ¨æ’­æ”¾çš„è¡Œç‚º
         /// </summary>
         public override void Pause()
         {
@@ -122,7 +122,7 @@ namespace MiskCore.Playables.Module.IdleBase
         }
 
         /// <summary>
-        /// Ä~Äò¼½©ñ¦æ¬°
+        /// ç¹¼çºŒæ’­æ”¾è¡Œç‚º
         /// </summary>
         public override void Continue()
         {

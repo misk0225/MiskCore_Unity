@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,8 +6,8 @@ using UnityEngine;
 namespace MiskCore.Math
 {
     /// <summary>
-    /// ¶ê¤èµ{¦¡
-    /// °Ñ·Ó (x - a) ^ 2 + (y - b) ^ 2 = r ^ 2
+    /// åœ“æ–¹ç¨‹å¼
+    /// åƒç…§ (x - a) ^ 2 + (y - b) ^ 2 = r ^ 2
     /// </summary>
     public class CircleFormula
     {

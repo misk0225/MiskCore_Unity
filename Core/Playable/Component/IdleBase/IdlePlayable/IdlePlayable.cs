@@ -1,21 +1,21 @@
-using UnityEngine.Playables;
+ï»¿using UnityEngine.Playables;
 
 
 namespace MiskCore.Playables.Module.IdleBase
 {
     /// <summary>
-    /// «İ¾÷ªº Playable ±µ¤f
+    /// å¾…æ©Ÿçš„ Playable æ¥å£
     /// </summary>
     public interface IIdlePlayable
     {
         /// <summary>
-        /// ¥D­nªº«İ¾÷ Playable
-        /// ¥²¶·¬O Loop ª¬ºA
+        /// ä¸»è¦çš„å¾…æ©Ÿ Playable
+        /// å¿…é ˆæ˜¯ Loop ç‹€æ…‹
         /// </summary>
         public Playable Playable { get; }
 
         /// <summary>
-        /// ¼½©ñ³t«×
+        /// æ’­æ”¾é€Ÿåº¦
         /// </summary>
         public float Speed { get; set; }
 

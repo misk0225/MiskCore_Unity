@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UniRx;
@@ -26,7 +26,7 @@ namespace MiskCore
         }
 
         /// <summary>
-        /// ¦b¬Y³B¼½©ñ¤@­Ó²É¤l¯S®Ä¡A·|¥ı©I¥s ParticleSystem.Stop() ¤§«á¦A²M°£
+        /// åœ¨æŸè™•æ’­æ”¾ä¸€å€‹ç²’å­ç‰¹æ•ˆï¼Œæœƒå…ˆå‘¼å« ParticleSystem.Stop() ä¹‹å¾Œå†æ¸…é™¤
         /// </summary>
         public ParticleSystem PlayEffect_Retain(ObjectPool<ParticleSystem> effectPool, Vector3 position, float startRetainTime, float afterDestory = 3f)
         {

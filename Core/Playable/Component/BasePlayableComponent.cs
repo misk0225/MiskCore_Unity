@@ -35,8 +35,13 @@ public abstract class BasePlayableComponent : MonoBehaviour
     public void SetRootPlayable(Playable playable)
     {
         playable.SetInputCount(2);
-        playable.SetInputWeight(0, 1);
-        playable.SetInputWeight(1, 0);
+
+        if (playable.CanSetWeights())
+        {
+            playable.SetInputWeight(0, 1);
+            playable.SetInputWeight(1, 0);
+        }
+
         PlayableOutput.SetSourcePlayable(playable);
     }
 

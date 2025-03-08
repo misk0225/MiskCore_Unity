@@ -25,6 +25,7 @@ namespace MiskCore
         public static void PlayEffect(ObjectPool<ParticleSystem> effectPool, Vector3 position, float afterDestory = 3f) => UtilsComponent.Instance.PlayEffect(effectPool, position, afterDestory);
         public static void PlayEffect_Retain(ObjectPool<ParticleSystem> effectPool, Vector3 position, float startRetainTime, float afterDestory = 3f) => UtilsComponent.Instance.PlayEffect_Retain(effectPool, position, startRetainTime, afterDestory);
         public static void NextFrame(Action action) => UtilsComponent.Instance.NextFrame(action);
+        public static void NextFixFrame(Action action) => UtilsComponent.Instance.NextFixFrame(action);
         public static IDisposable Timer(Action action, float time) => UtilsComponent.Instance.Timer(time, action);
         public static IDisposable Updater(Action action) => UtilsComponent.Instance.Updater(action);
         public static IDisposable Schedule(Action action, float time) => UtilsComponent.Instance.Schedule(time, action);

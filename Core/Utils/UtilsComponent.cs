@@ -48,6 +48,14 @@ namespace MiskCore
             }).AddTo(this);
         }
 
+        public void NextFixFrame(Action action)
+        {
+            Observable.EveryFixedUpdate().First().Subscribe((_) =>
+            {
+                action();
+            }).AddTo(this);
+        }
+
         public IDisposable Timer(float time, Action action)
         {
             return Observable.Timer(TimeSpan.FromSeconds(time)).Subscribe((_) =>

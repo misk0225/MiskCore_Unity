@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace MiskCore
 {
-    // TODO: ¤§«á¥i¥H¸É¤W§ó¦h¤èªk
+    // TODO: ä¹‹å¾Œå¯ä»¥è£œä¸Šæ›´å¤šæ–¹æ³•
     [Serializable]
     public class SerializableDictionary<TKey, TValue> : ISerializationCallbackReceiver
     {
@@ -37,7 +37,7 @@ namespace MiskCore
 
         public void OnBeforeSerialize()
         {
-            // ¦pªG»İ­n±N _Map ¤º®e¦^Äé¨ì lists¡A¥i¦b¦¹¦P¨B
+            // å¦‚æœéœ€è¦å°‡ _Map å…§å®¹å›çŒåˆ° listsï¼Œå¯åœ¨æ­¤åŒæ­¥
         }
 
         public void OnAfterDeserialize()
@@ -51,7 +51,7 @@ namespace MiskCore
             int count = Mathf.Min(keys.Count, values.Count);
             for (int i = 0; i < count; i++)
             {
-                // »İ­nÁ×§K­«½Æ key ªº¸Ü¥i¥[§PÂ_
+                // éœ€è¦é¿å…é‡è¤‡ key çš„è©±å¯åŠ åˆ¤æ–·
                 if (!_Map.ContainsKey(keys[i]))
                     _Map.Add(keys[i], values[i]);
             }
@@ -60,12 +60,12 @@ namespace MiskCore
 
 #if UNITY_EDITOR
         /// <summary>
-        /// ¥H¶Ç¤Jªº keys/values ª½±µÂĞ¼g³o­Ó SerializableDictionary ªº§Ç¦C¤Æ¸ê®Æ¡C
+        /// ä»¥å‚³å…¥çš„ keys/values ç›´æ¥è¦†å¯«é€™å€‹ SerializableDictionary çš„åºåˆ—åŒ–è³‡æ–™ã€‚
         /// </summary>
-        /// <param name="property">«ü¦V¦r¨åÄæ¦ì¡]¨Ò¦p A.dir¡^ªº SerializedProperty</param>
-        /// <param name="newKeys">­n¼g¤Jªº Key ²M³æ</param>
-        /// <param name="newValues">­n¼g¤Jªº Value ²M³æ</param>
-        /// <param name="clearBefore">¼g¤J«e¬O§_¥ı²MªÅ¡]¹w³] true¡^</param>
+        /// <param name="property">æŒ‡å‘å­—å…¸æ¬„ä½ï¼ˆä¾‹å¦‚ A.dirï¼‰çš„ SerializedProperty</param>
+        /// <param name="newKeys">è¦å¯«å…¥çš„ Key æ¸…å–®</param>
+        /// <param name="newValues">è¦å¯«å…¥çš„ Value æ¸…å–®</param>
+        /// <param name="clearBefore">å¯«å…¥å‰æ˜¯å¦å…ˆæ¸…ç©ºï¼ˆé è¨­ trueï¼‰</param>
         public static void ModifySerialized(
             UnityEditor.SerializedProperty property,
             IList<TKey> newKeys,
@@ -79,7 +79,7 @@ namespace MiskCore
 
             if (keysProp == null || valuesProp == null)
                 throw new InvalidOperationException(
-                    $"§ä¤£¨ì '{PropertyName_keys}' / '{PropertyName_values}'¡A½Ğ½T»{Äæ¦ì¦WºÙ¡C");
+                    $"æ‰¾ä¸åˆ° '{PropertyName_keys}' / '{PropertyName_values}'ï¼Œè«‹ç¢ºèªæ¬„ä½åç¨±ã€‚");
 
             if (clearBefore)
             {
@@ -87,7 +87,7 @@ namespace MiskCore
                 valuesProp.ClearArray();
             }
 
-            // ¥u¼g¤J¯à¤@¤@°t¹ïªº³Ì¤pªø«×
+            // åªå¯«å…¥èƒ½ä¸€ä¸€é…å°çš„æœ€å°é•·åº¦
             int count = Mathf.Min(newKeys?.Count ?? 0, newValues?.Count ?? 0);
             for (int i = 0; i < count; i++)
             {
@@ -98,37 +98,37 @@ namespace MiskCore
                 var keyElem = keysProp.GetArrayElementAtIndex(idx);
                 var valueElem = valuesProp.GetArrayElementAtIndex(idx);
 
-                // ¼g¤J Key
+                // å¯«å…¥ Key
                 WriteValueToProperty(keyElem, newKeys[i], isKey: true);
 
-                // ¼g¤J Value
+                // å¯«å…¥ Value
                 WriteValueToProperty(valueElem, newValues[i], isKey: false);
             }
         }
 
         /// <summary>
-        /// °w¹ï±`¨£«¬§O¡]enum / Object / int / float / bool / string¡^°µ¦w¥ş½á­È¡C
-        /// §Aªº®×¨Ò¡]enum + Transform¡^·|¨« enumValueIndex / objectReferenceValue¡C
+        /// é‡å°å¸¸è¦‹å‹åˆ¥ï¼ˆenum / Object / int / float / bool / stringï¼‰åšå®‰å…¨è³¦å€¼ã€‚
+        /// ä½ çš„æ¡ˆä¾‹ï¼ˆenum + Transformï¼‰æœƒèµ° enumValueIndex / objectReferenceValueã€‚
         /// </summary>
         private static void WriteValueToProperty<T>(UnityEditor.SerializedProperty prop, T value, bool isKey)
         {
             var t = typeof(T);
 
-            // enum¡]³Ì±`¨£ªº key¡^
+            // enumï¼ˆæœ€å¸¸è¦‹çš„ keyï¼‰
             if (t.IsEnum)
             {
                 prop.enumValueIndex = Convert.ToInt32(value);
                 return;
             }
 
-            // UnityEngine.Object¡]³Ì±`¨£ªº value¡GTransform/Collider/ScriptableObject...¡^
+            // UnityEngine.Objectï¼ˆæœ€å¸¸è¦‹çš„ valueï¼šTransform/Collider/ScriptableObject...ï¼‰
             if (typeof(UnityEngine.Object).IsAssignableFrom(t))
             {
                 prop.objectReferenceValue = value as UnityEngine.Object;
                 return;
             }
 
-            // ¤@¨Ç°ò¥»­È«¬ºA¡]µø»İ­nÂX¥R¡^
+            // ä¸€äº›åŸºæœ¬å€¼å‹æ…‹ï¼ˆè¦–éœ€è¦æ“´å……ï¼‰
             if (t == typeof(int))
             {
                 prop.intValue = Convert.ToInt32(value);
@@ -150,10 +150,10 @@ namespace MiskCore
                 return;
             }
 
-            // ¨ä¥L¶i¶¥«¬§O¡]Vector¡BColor¡BQuaternion¡BAnimationCurve¡BManagedReference µ¥¡^
-            // »İ­n¹ïÀ³ SerializedPropertyType ­Ó§O½á­È¡F³o¸Ì¥ı¥á¥X¨Ò¥~Á×§KÀRÀq¿ù»~¡C
+            // å…¶ä»–é€²éšå‹åˆ¥ï¼ˆVectorã€Colorã€Quaternionã€AnimationCurveã€ManagedReference ç­‰ï¼‰
+            // éœ€è¦å°æ‡‰ SerializedPropertyType å€‹åˆ¥è³¦å€¼ï¼›é€™è£¡å…ˆä¸Ÿå‡ºä¾‹å¤–é¿å…éœé»˜éŒ¯èª¤ã€‚
             throw new NotSupportedException(
-                $"{(isKey ? "Key" : "Value")} Ãş«¬ {t.Name} ©|¥¼¹ê§@¼g¤J¹ïÀ³¡A½ĞÂX¥R WriteValueToProperty¡C");
+                $"{(isKey ? "Key" : "Value")} é¡å‹ {t.Name} å°šæœªå¯¦ä½œå¯«å…¥å°æ‡‰ï¼Œè«‹æ“´å…… WriteValueToPropertyã€‚");
         }
 #endif
     }
